@@ -1,6 +1,7 @@
 package com.example.cocktails.ui.screens.HomeScreen
 
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,7 +22,8 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var fetchDrinkJob: Job? = null
-    val drinksList: MutableState<DataState<List<DrinkItem>>?> = mutableStateOf(null)
+    val isLoading:  MutableState<Boolean>  = mutableStateOf(false)
+    val drinksList: MutableState<List<DrinkItem>?> = mutableStateOf(null)
 
     init {
         fetchDrinks()
@@ -40,7 +42,18 @@ class MainViewModel @Inject constructor(
         fetchDrinkJob = viewModelScope.launch {
             delay(200)
             repo.execute(text).collectLatest {
-              drinksList.value = it
+              when(it){
+                 is DataState.Loading->{
+                      isLoading.value = true
+                  }
+                  is DataState.Success -> {
+                      isLoading.value = false
+                      drinksList.value = it.data
+                  }
+                  is DataState.Error -> {
+
+                  }
+              }
             }
 
         }

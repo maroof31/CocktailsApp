@@ -25,6 +25,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -56,17 +57,9 @@ import com.example.cocktails.utils.network.DataState
 @Composable
 fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
     val viewModel = hiltViewModel<MainViewModel>()
-    val uiState = viewModel.drinksList
-    val isLoading: Boolean = uiState.value is DataState.Loading
-
-    val drinkItemList: List<DrinkItem>? = uiState.value?.let { dataState ->
-        when (dataState) {
-            is DataState.Success -> dataState.data
-            else -> null
-        }
-    }
-
-
+    val drinkItemList = viewModel.drinksList.value
+    val isLoading= viewModel.isLoading.value
+    
    Column(modifier = Modifier
        .fillMaxSize()
        .background(Color.White)
