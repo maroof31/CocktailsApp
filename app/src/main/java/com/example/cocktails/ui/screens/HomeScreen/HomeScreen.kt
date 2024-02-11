@@ -1,5 +1,6 @@
 package com.example.cocktails.ui.screens.HomeScreen
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,7 +26,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,11 +35,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.example.cocktails.R
 import com.example.cocktails.data.model.DrinkItem
@@ -52,14 +54,15 @@ import com.example.cocktails.ui.theme.body1secondary
 import com.example.cocktails.ui.theme.body2
 import com.example.cocktails.ui.theme.subtitle1
 import com.example.cocktails.ui.theme.title1
-import com.example.cocktails.utils.network.DataState
+import com.example.cocktails.utils.orFalse
 
 @Composable
 fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
     val viewModel = hiltViewModel<MainViewModel>()
     val drinkItemList = viewModel.drinksList.value
-    val isLoading= viewModel.isLoading.value
-    
+    val isLoading = viewModel.isLoading.value
+    val isError = viewModel.isError.value
+
    Column(modifier = Modifier
        .fillMaxSize()
        .background(Color.White)
@@ -83,7 +86,7 @@ fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
        }
 
        NearRestaurantHeader()
-       if(drinkItemList?.isEmpty() == true){
+       if(drinkItemList?.isEmpty().orFalse()){
            NothingFound()
        }else{
            DrinksList(
@@ -91,6 +94,14 @@ fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
                onclick = { onclick(it) }
            )
        }
+       if(isError){
+         Toast.makeText(
+             LocalContext.current,
+             R.string.oops_error,
+             Toast.LENGTH_SHORT
+         ).show()
+       }
+
    }
 
 }

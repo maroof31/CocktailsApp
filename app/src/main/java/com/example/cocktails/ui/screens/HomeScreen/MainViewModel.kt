@@ -23,6 +23,7 @@ class MainViewModel @Inject constructor(
 
     private var fetchDrinkJob: Job? = null
     val isLoading:  MutableState<Boolean>  = mutableStateOf(false)
+    val isError: MutableState<Boolean> = mutableStateOf(false)
     val drinksList: MutableState<List<DrinkItem>?> = mutableStateOf(null)
 
     init {
@@ -44,14 +45,16 @@ class MainViewModel @Inject constructor(
             repo.execute(text).collectLatest {
               when(it){
                  is DataState.Loading->{
+                      isError.value = false
                       isLoading.value = true
                   }
                   is DataState.Success -> {
                       isLoading.value = false
+                      isError.value = false
                       drinksList.value = it.data
                   }
                   is DataState.Error -> {
-
+                      isError.value = true
                   }
               }
             }
