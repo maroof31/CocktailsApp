@@ -7,6 +7,15 @@ Welcome to the Cocktail Search App! This application allows users to search for 
 
 The Cocktail Search App is designed to provide users with a seamless experience for discovering and exploring various cocktails. With a simple and intuitive interface, users can easily search for their favorite drinks and access detailed information about each one.
 
+
+![screen1](https://github.com/maroof31/CocktailsApp/assets/89301157/6d1c0eaf-96ff-4537-b624-aa63d272faf5)
+
+![sc2](https://github.com/maroof31/CocktailsApp/assets/89301157/6d5671d1-db56-4442-aeda-efc9ed7b34a5)
+
+
+
+
+
 ## Video Playback
 
 [![Video](https://img.youtube.com/vi/rlxzBdNAC4U/0.jpg)]([https://www.youtube.com/watch?v=rlxzBdNAC4U](https://youtube.com/shorts/r1efN8Y29Bc?feature=share))
