@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cocktails</string>
+    <string name="view">View</string>
+    <string name="lets_eat_quality_food">Let\'s Eat\nQuality Food</string>
+    <string name="near_restaurant">Near Restaurant</string>
+    <string name="see_all">See All</string>
+    <string name="ingredients">Ingredients: </string>
+    <string name="size">Size: </string>
+    <string name="instructions">Instructions</string>
+    <string name="search">Search</string>
+    <string name="type">Type:</string>
+</resources>
