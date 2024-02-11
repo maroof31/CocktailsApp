@@ -57,6 +57,7 @@ import com.example.cocktails.utils.network.DataState
 fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
     val viewModel = hiltViewModel<MainViewModel>()
     val uiState = viewModel.drinksList
+    val isLoading: Boolean = uiState.value is DataState.Loading
 
     val drinkItemList: List<DrinkItem>? = uiState.value?.let { dataState ->
         when (dataState) {
@@ -84,7 +85,7 @@ fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
            onSearchQueryType = { viewModel.uiEvent(HomeScreenUiEvent.SearchQueryTyped(it)) }
        )
 
-       if (uiState.value is DataState.Loading) {
+       if (isLoading) {
            CircularProgressBar(true)
        }
 
