@@ -7,6 +7,10 @@ Welcome to the Cocktail Search App! This application allows users to search for 
 
 The Cocktail Search App is designed to provide users with a seamless experience for discovering and exploring various cocktails. With a simple and intuitive interface, users can easily search for their favorite drinks and access detailed information about each one.
 
+## Video Playback
+
+[![Video](https://img.youtube.com/vi/rlxzBdNAC4U/0.jpg)]([https://www.youtube.com/watch?v=rlxzBdNAC4U](https://youtube.com/shorts/r1efN8Y29Bc?feature=share))
+
 ## Features
 
 ### 1. MVVM Clean Architecture
@@ -44,8 +48,7 @@ To run the Cocktail app on your local machine, follow these steps:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/cocktail-search-app.git
-
+git clone https://github.com/maroof31/CocktailsApp.git
 
 Build and run the app on an emulator or physical device.
  
