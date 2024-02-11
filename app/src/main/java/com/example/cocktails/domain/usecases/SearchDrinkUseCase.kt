@@ -23,7 +23,7 @@ class SearchDrinkUseCase @Inject constructor(
             }
     }
 }
-fun mapDrinksItemDtoToDrinkItem(drinksItemDTOList: List<DrinksItemDTO?>?):List<DrinkItem> {
+private fun mapDrinksItemDtoToDrinkItem(drinksItemDTOList: List<DrinksItemDTO?>?):List<DrinkItem> {
     val list = mutableListOf<DrinkItem>()
     drinksItemDTOList?.forEach { drinksItemDTO->
         val ingredientsList = mutableListOf<String>()
