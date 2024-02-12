@@ -2,6 +2,9 @@
 # Cocktail Search App
 
 Welcome to the Cocktail Search App! This application allows users to search for cocktails and view detailed information about each drink. The app is built using Kotlin and follows the MVVM clean architecture pattern. It utilizes Hilt for dependency injection, Retrofit for networking, and Coil for efficient image loading.
+
+you can download the apk from Appapk folder
+
 ![sc01](https://github.com/maroof31/CocktailsApp/assets/89301157/8c344dda-2a31-4249-a4a1-fe17dcfe2b85)
 
 
