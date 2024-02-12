@@ -33,6 +33,7 @@ import coil.compose.AsyncImage
 import com.example.cocktails.R
 import com.example.cocktails.data.model.DrinkItem
 import com.example.cocktails.ui.theme.body1
+import com.example.cocktails.ui.theme.body1secondary
 import com.example.cocktails.utils.orEmpty
 
 
@@ -186,14 +187,13 @@ fun Measure(size: String) {
     Box(
         modifier = Modifier
             .padding(end = 10.dp)
-            .border(3.dp, color = Color.Red, RoundedCornerShape(12.dp))
+            .border(2.dp, color = Color.Red, RoundedCornerShape(12.dp))
             .padding(10.dp)
     ) {
         Text(
             text = size,
-            color = colorResource(id = R.color.black),
-            style = MaterialTheme.typography.body1
-                .copy(fontSize = 24.sp),
+            style = MaterialTheme.typography.body1secondary
+                .copy(fontSize = 18.sp),
             modifier = Modifier
                 .padding(horizontal = 18.dp, vertical = 4.dp)
         )

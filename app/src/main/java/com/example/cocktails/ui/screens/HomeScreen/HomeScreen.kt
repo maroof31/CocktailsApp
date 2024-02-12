@@ -233,7 +233,6 @@ fun CocktailItemComposable(
         )
 
         Text(text = category,
-            color = Color.Black,
             style = MaterialTheme.typography.body1secondary,
             modifier = Modifier
                 .padding(top=2.dp)
