@@ -41,7 +41,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.example.cocktails.R
 import com.example.cocktails.data.model.DrinkItem
@@ -57,7 +56,7 @@ import com.example.cocktails.ui.theme.title1
 import com.example.cocktails.utils.orFalse
 
 @Composable
-fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
+fun HomeScreen(onclickDrink: (item:DrinkItem)-> Unit) {
     val viewModel = hiltViewModel<MainViewModel>()
     val drinkItemList = viewModel.drinksList.value
     val isLoading = viewModel.isLoading.value
@@ -91,7 +90,7 @@ fun HomeScreen(onclick: (item:DrinkItem)-> Unit) {
        }else{
            DrinksList(
                items = drinkItemList?: emptyList(),
-               onclick = { onclick(it) }
+               onclick = { onclickDrink(it) }
            )
        }
        if(isError){

@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -57,12 +58,12 @@ fun NearRestaurant(){
                 .fillMaxHeight(),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(text = "Blue Restaurant",
+            Text(text = stringResource(id = R.string.blue_restaurant),
                  style = MaterialTheme.typography.subtitle1,
                 modifier = Modifier
 
             )
-            Text(text = "10:00 AM - 3:30 PM",
+            Text(text = stringResource(id = R.string.time),
                 style = MaterialTheme.typography.body2secondary,
                 modifier = Modifier
 
@@ -71,7 +72,7 @@ fun NearRestaurant(){
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "Steve st Rood",
+                Text(text = stringResource(id = R.string.steve_st_road),
                     color = Color.Red,
                     style = MaterialTheme.typography.body2,
                     modifier = Modifier

@@ -10,4 +10,7 @@
     <string name="search">Search</string>
     <string name="type">Type:</string>
     <string name="oops_error">Oops some error occurred</string>
+    <string name="blue_restaurant">Blue Restaurant</string>
+    <string name="time">10:00 AM - 3:30 PM</string>
+    <string name="steve_st_road">Steve st Rood</string>
 </resources>

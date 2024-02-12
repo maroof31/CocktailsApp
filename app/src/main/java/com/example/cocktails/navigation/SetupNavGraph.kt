@@ -13,7 +13,7 @@ fun NavGraph(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.Home.route){
         composable(route = Screen.Home.route){
-            HomeScreen(onclick = {
+            HomeScreen(onclickDrink = {
                 navController.currentBackStackEntry?.savedStateHandle?.set(
                     key = "drinkItem",
                     value = it
